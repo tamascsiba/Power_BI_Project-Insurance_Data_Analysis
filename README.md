@@ -8,6 +8,9 @@ This Power BI project analyzes an insurance portfolio by combining **policy-leve
 
 As a first step, the dataset was prepared by importing the source CSV into **Microsoft SQL Server**, creating a structured and reusable table that Power BI can reliably consume for modeling, DAX measures, and dashboard development.
 
+## Documentation
+A complete, detailed project documentation is available in: **Insurance_Data_Analysis_Documentation.pdf**.
+
 ---
 
 ## Data Source & SQL Server Import (CSV → dbo.InsuranceData)
