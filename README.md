@@ -29,6 +29,8 @@ SELECT *
 FROM [dbo].[InsuranceData];
 ```
 
+![SQL Server - InsuranceData table imported](pics/sql_server.png)
+
 ### Main columns (high level)
 The `dbo.InsuranceData` table contains the key attributes needed for insurance reporting and claim analysis, including:
 
