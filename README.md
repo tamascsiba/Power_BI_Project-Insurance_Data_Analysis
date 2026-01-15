@@ -84,5 +84,102 @@ A new `Active/Inactive` status column was derived from `PolicyEndDate` to differ
 
 ![Power Query - Active/Inactive conditional column](pics/active_inactive.png)
 
+---
+
+## Report Page – Overview Dashboard (PRISM INSURANCE PVT. LTD.)
+
+This page serves as the main **executive overview** of the insurance portfolio, combining policy-level exposure and claim-related indicators into a single interactive view. It is designed for quick monitoring of overall performance and for exploring patterns by policy, customer, product type, demographics, and claim status.
+
+![Overview Dashboard - PRISM INSURANCE](pics/report_view.png)
+
+### Page objectives
+- Provide a high-level snapshot of the portfolio using key KPIs (Premium, Coverage, Claim Amount).
+- Enable rapid filtering by individual identifiers (PolicyNumber, ClaimNumber, CustomerID).
+- Show distribution and breakdowns across **policy lifecycle status** (Active/Inactive), **policy type**, **claim status**, and **age segments**.
+
+---
+
+### Filters / Slicers (Top navigation)
+- **PolicyNumber**: filters the entire report to a specific policy (or multiple policies).
+- **ClaimNumber**: filters to a specific claim record (or set of claims).
+- **CustomerID**: filters the report to a specific customer profile.
+
+These slicers are meant to support both **portfolio-level browsing** (All) and **case-level analysis** (single policy/claim/customer).
+
+---
+
+### KPI Cards (Top row)
+- **Premium Amount (5.97M)**: total premium volume for the current filter context.
+- **Coverage Amount (600.33M)**: total exposure / insured amount (coverage) in the portfolio.
+- **Claim Amount (16.90M)**: total claim value for the current filter context.
+
+These KPIs update dynamically based on the slicers and cross-filtering from visuals.
+
+---
+
+### Demographics summary (Left side)
+- **Gender distribution tiles**
+  - Female: 5000
+  - Male: 5000
+
+These cards provide a quick demographic split and can act as an at-a-glance indicator of customer distribution.
+
+---
+
+### Portfolio status (Center)
+**Donut chart – Count of Active/Inactive Policies**
+- Active: **5.81K (58.11%)**
+- Inactive: **4.19K (41.89%)**
+
+This visual summarizes the lifecycle status of the portfolio using the derived `Active/Inactive` column, making it easy to track how much of the portfolio is still active versus expired.
+
+---
+
+### Product performance (Right)
+**Bar chart – Premium Amount by Policy Type**
+- Travel: ~2.5M
+- Health: ~1.2M
+- Auto: ~1.0M
+- Life: ~0.7M
+- Home: ~0.6M
+
+This chart highlights which product lines contribute the most to premium volume and supports ranking/comparison across policy types.
+
+---
+
+### Claims monitoring (Bottom left)
+**Column chart – Number of Claims by Claim Status**
+- Rejected: ~4.4K
+- Settled: ~3.4K
+- Pending: ~2.3K
+
+This view provides operational insight into claim processing outcomes and can be used to investigate potential bottlenecks (e.g., high Pending volume) or quality signals (e.g., high Rejected rate).
+
+---
+
+### Risk / cost segmentation (Bottom center)
+**Line/Area chart – Claim Amount by Age Group**
+- Adult: ~8.8M
+- Elder: ~6.4M
+- Young Adults: ~1.7M
+
+This visual uses the derived `Age Group` column to compare claim cost distribution across age segments and identify the most claim-cost-intensive groups.
+
+---
+
+### Detailed breakdown (Bottom right)
+**Matrix – Coverage Amount by Policy Type and Claim Status**
+A detailed table view that breaks down amounts by:
+- **Rows:** PolicyType (Auto, Health, Home, Life, Travel)
+- **Columns:** ClaimStatus (Pending, Rejected, Settled) + Total
+
+This matrix supports deeper validation and helps explain the KPI totals by showing where exposure is concentrated across product lines and statuses.
+
+---
+
+### User experience & design notes
+- The page uses a consistent **dark theme** with clear containers for each visual.
+- Key measures are surfaced as KPI cards for immediate readability.
+- Cross-filtering across visuals enables exploration (e.g., selecting a policy type updates claim status distribution and related KPIs).
 
 
