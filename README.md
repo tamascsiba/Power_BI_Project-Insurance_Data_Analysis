@@ -48,3 +48,41 @@ The `dbo.InsuranceData` table contains the key attributes needed for insurance r
 - **ClaimDate** – date of the claim event (when applicable)  
 - **ClaimAmount** – monetary value of the claim (when applicable)  
 - **ClaimStatus** – claim processing status (e.g., Pending / Settled / Rejected)
+
+---
+
+## Power BI - SQL Server Connection
+The dataset was imported into Power BI directly from Microsoft SQL Server using the native **SQL Server database** connector.  
+The connection was configured in **Import** mode to enable fast in-memory analytics, DAX calculations, and interactive visuals.
+
+**Connection details (high level):**
+- **Server:** TOMA-YOGA
+- **Connectivity mode:** Import
+- **Source table:** Insurancedb.dbo.InsuranceData
+
+![Power BI SQL Server connector settings](pics/import_from_sql_server.png)
+
+---
+
+## Data Preparation (Power Query)
+To support segmentation and clearer reporting, two additional derived columns were created in Power Query using **Conditional Column** rules. These columns are used for filtering, grouping, and high-level analysis in the report.
+
+### Age Group (Conditional Column)
+A new `Age Group` column was derived from `Age` to enable demographic segmentation in visuals and slicers:
+
+- **Young Adults:** Age <= 24  
+- **Adult:** Age <= 60  
+- **Elder:** Age > 60  
+
+![Power Query - Age Group conditional column](pics/new_column.png)
+
+### Active vs Inactive Policy (Conditional Column)
+A new `Active/Inactive` status column was derived from `PolicyEndDate` to differentiate active policies from expired ones (using a cut-off date):
+
+- **Inactive:** PolicyEndDate <= 2024-12-10  
+- **Active:** otherwise  
+
+![Power Query - Active/Inactive conditional column](pics/active_inactive.png)
+
+
+
