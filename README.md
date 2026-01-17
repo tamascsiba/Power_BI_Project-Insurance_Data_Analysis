@@ -265,4 +265,13 @@ With these roles in place, the same visuals and measures automatically recalcula
 
 ![Power BI Manage roles - RLS example](pics/Role_manager.png)
 
+---
+
+## Summary
+
+This project delivers an end-to-end **Power BI insurance analytics report** built on a structured SQL Server data source. The workflow starts with loading the `InsuranceData` CSV into **SQL Server** (`Insurancedb.dbo.InsuranceData`, 10,004 rows), providing a stable backend for reporting. The dataset includes key policy, customer, and claim attributes (premium, coverage, claim status, dates, demographics), enabling both portfolio monitoring and deeper claim analysis.
+
+In Power BI, the data is connected via the **SQL Server connector in Import mode** to ensure fast in-memory performance. Two additional columns were created in **Power Query** to improve segmentation and reporting: **Age Group** (Young Adults / Adult / Elder) and **Active/Inactive** policy status derived from `PolicyEndDate`. The main **Overview dashboard** provides high-level KPIs (Premium, Coverage, Claim Amount) and interactive breakdowns by policy type, claim status, policy activity, and age segments. A dedicated **Drill Through Table** page supports record-level investigation using `PolicyType` as the drill-through field. Finally, **Row-Level Security (RLS)** was implemented with example roles (e.g., Health Role, Travel Role) to demonstrate role-based data access in a shared report.
+
+A complete project write-up is available in **Insurance_Data_Analysis_Documentation.docx**.
 
