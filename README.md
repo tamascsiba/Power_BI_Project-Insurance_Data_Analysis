@@ -273,5 +273,5 @@ This project delivers an end-to-end **Power BI insurance analytics report** buil
 
 In Power BI, the data is connected via the **SQL Server connector in Import mode** to ensure fast in-memory performance. Two additional columns were created in **Power Query** to improve segmentation and reporting: **Age Group** (Young Adults / Adult / Elder) and **Active/Inactive** policy status derived from `PolicyEndDate`. The main **Overview dashboard** provides high-level KPIs (Premium, Coverage, Claim Amount) and interactive breakdowns by policy type, claim status, policy activity, and age segments. A dedicated **Drill Through Table** page supports record-level investigation using `PolicyType` as the drill-through field. Finally, **Row-Level Security (RLS)** was implemented with example roles (e.g., Health Role, Travel Role) to demonstrate role-based data access in a shared report.
 
-A complete project write-up is available in **Insurance_Data_Analysis_Documentation.docx**.
+A complete project write-up is available in **Insurance_Data_Analysis_Documentation.pdf**.
 
