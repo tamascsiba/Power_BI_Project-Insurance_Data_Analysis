@@ -263,6 +263,6 @@ Two example roles were created in Power BI Desktop under **Manage roles**. Each 
 
 With these roles in place, the same visuals and measures automatically recalculate based on the role filter, providing a realistic example of how product- or department-specific access can be enforced in a shared reporting solution.
 
-![Power BI Manage roles - RLS example](images/Role_manager.png)
+![Power BI Manage roles - RLS example](pics/Role_manager.png)
 
 
