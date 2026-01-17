@@ -250,3 +250,19 @@ A large table visual displays the dataset at row level. It includes a mix of ide
 - Helps validate KPI totals and matrix breakdowns.
 - Supports audit-like analysis (e.g., checking which exact records contribute to a high claim amount or a spike in rejected claims).
 
+---
+
+## Row-Level Security (RLS)
+To demonstrate secure data access in Power BI, **Row-Level Security (RLS)** was implemented using role-based filters. RLS ensures that different user groups can only see the subset of records they are authorized to access, while using the same report and data model.
+
+### Security roles based on PolicyType
+Two example roles were created in Power BI Desktop under **Manage roles**. Each role restricts rows in the `InsuranceData` table by filtering the `PolicyType` column:
+
+- **Health Role:** `PolicyType` equals `"Health"`
+- **Travel Role:** `PolicyType` equals `"Travel"`
+
+With these roles in place, the same visuals and measures automatically recalculate based on the role filter, providing a realistic example of how product- or department-specific access can be enforced in a shared reporting solution.
+
+![Power BI Manage roles - RLS example](pics/Role_manager.png)
+
+
