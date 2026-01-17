@@ -182,4 +182,71 @@ This matrix supports deeper validation and helps explain the KPI totals by showi
 - Key measures are surfaced as KPI cards for immediate readability.
 - Cross-filtering across visuals enables exploration (e.g., selecting a policy type updates claim status distribution and related KPIs).
 
+---
+
+## Report Page – Drill Through Table
+
+This page is a dedicated **drill-through detail view** designed to display the underlying records behind the high-level visuals on the Overview dashboard. It enables case-level investigation by showing policy and claim attributes in a single, filterable table.
+
+![Drill Through Table page](pics/drill_through_table.png)
+
+### Purpose of the page
+- Provide a **record-level breakdown** for validation and deeper analysis.
+- Support **root-cause investigation** (e.g., why a specific policy type has higher claim amounts or more rejections).
+- Allow users to move from summary visuals to **raw detail rows** without leaving the report.
+
+---
+
+### Drill-through configuration
+The page is configured as a **drill-through target** using the field:
+
+- **Drill-through field:** `PolicyType`
+
+A drill-through filter panel is displayed on the right side and shows the selected context (e.g., **PolicyType = Travel**). This means that when a user right-clicks a data point on another page (for example, a bar in *Premium Amount by Policy Type*) and selects **Drill through**, they are navigated here with the relevant `PolicyType` applied.
+
+> The drill-through behavior is controlled in Power BI using the “Allow drill through when: Used as category” setting for the selected field.
+
+---
+
+### Applied filters (example shown)
+In the screenshot, the drill-through filter is set to:
+- **PolicyType = Travel**
+
+This dynamically filters the entire table to show only records matching the selected policy type.
+
+---
+
+### Main visual: Detail Table
+A large table visual displays the dataset at row level. It includes a mix of identifiers, demographic attributes, financial values, and dates to give full context for each record.
+
+**Columns visible in the table include:**
+- **PolicyNumber** – policy identifier  
+- **CustomerID** – customer identifier  
+- **ClaimNumber** – claim identifier  
+- **Sum of Age** (Age) – customer age (aggregated field label shown by Power BI)  
+- **Gender** – customer gender  
+- **CoverageAmount** – coverage / exposure amount  
+- **PremiumAmount** – premium amount  
+- **PolicyEndDate** – policy end date  
+- **PolicyStartDate** – policy start date  
+- **PolicyType** – insurance product type  
+- **ClaimStatus** – claim status (Pending / Rejected / Settled)  
+- **ClaimDate** – claim date (when applicable)
+
+> Note: In a table visual, Power BI may display numeric fields with an implicit aggregation label (e.g., “Sum of Age”). If the intention is to show the raw value per row, the field can be set to **“Don’t summarize”**.
+
+---
+
+### How this page is used (typical workflow)
+1. User reviews a KPI or chart on the Overview page (e.g., PolicyType premium ranking).
+2. User right-clicks a chart element (e.g., Travel) and chooses **Drill through → Drill Through Table**.
+3. This page opens with the drill-through context applied (e.g., `PolicyType = Travel`).
+4. User scans or exports the detailed rows to verify patterns and identify outliers (e.g., unusually high claims, many rejected claims, policy date anomalies).
+
+---
+
+### Why it matters
+- Improves **traceability** from summary visuals to individual records.
+- Helps validate KPI totals and matrix breakdowns.
+- Supports audit-like analysis (e.g., checking which exact records contribute to a high claim amount or a spike in rejected claims).
 
